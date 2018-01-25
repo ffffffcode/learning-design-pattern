@@ -23,7 +23,8 @@ public class LazySingleton {
 	private static LazySingleton instance;
 
 	// 3.提供一个获取实例的方法，使用public static修饰
-	public static LazySingleton getInstance() {
+	// 为了线程安全，添加上同步锁synchronized,但是synchronized对于性能有较大的影响
+	public synchronized static LazySingleton getInstance() {
 		if (instance == null) {
 			instance = new LazySingleton();
 		}
