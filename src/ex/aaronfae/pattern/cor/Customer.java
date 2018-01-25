@@ -1,7 +1,5 @@
 package ex.aaronfae.pattern.cor;
 
-import java.util.Random;
-
 /**
  * 客户类，用于申请折扣
  * 
