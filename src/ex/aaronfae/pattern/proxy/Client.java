@@ -3,6 +3,8 @@ package ex.aaronfae.pattern.proxy;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
 
+import ex.aaronfae.pattern.proxy.cglib.Bus;
+import ex.aaronfae.pattern.proxy.cglib.CglibProxy;
 import ex.aaronfae.pattern.proxy.dynamic.TimeHandler;
 import ex.aaronfae.pattern.proxy.dynamic.Train;
 
@@ -38,6 +40,13 @@ public class Client {
 		Moveable m2 = (Moveable) Proxy.newProxyInstance(cls.getClassLoader(), cls.getInterfaces(), h2);
 		m2.move();
 		System.out.println("！！！！！！！！諮概！！！！！！！！");
-		System.out.println("！！！！！！！！！！強蓑旗尖！！！！！！！！！！");
+		System.out.println("！！！！！！！！！！強蓑旗尖！！！！！！！！！！\n");
+
+		// Cglib旗尖
+		System.out.println("！！！！！！！！！！Cglib旗尖！！！！！！！！！！");
+		CglibProxy cglibProxy = new CglibProxy();
+		Bus bus = (Bus) cglibProxy.getCglibProxyInstance(Bus.class);
+		bus.move();
+		System.out.println("！！！！！！！！！！Cglib旗尖！！！！！！！！！！");
 	}
 }
